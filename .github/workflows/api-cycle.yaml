@@ -10,7 +10,7 @@ jobs:
     name: Validate OpenAPI documentation
     runs-on: ubuntu-latest
     steps:
-      # Check out the repository
+      # Check out the repository 
       - uses: actions/checkout@v2
 
       # Run Spectral
@@ -28,9 +28,10 @@ jobs:
       - uses: actions/setup-node@v2
         with:
           node-version: '16'
-
+          
+#update actions/cache@v3
       - name: Cache node modules
-        uses: actions/cache@v2
+        uses: actions/cache@v3
         id: cache-node-modules
         env:
           cache-name: cache-node-modules
