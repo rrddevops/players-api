@@ -1,5 +1,5 @@
 ##Builder Image
-FROM golang:1.17-stretch as builder
+FROM golang:1.17-stretch AS builder
 ENV GO111MODULE=on
 COPY . /players
 WORKDIR /players
