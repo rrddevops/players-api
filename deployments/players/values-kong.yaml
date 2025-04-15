@@ -8,7 +8,7 @@ image:
   repository: rodrigordavila/players
   pullPolicy: Always
   # Overrides the image tag whose default is the chart appVersion.
-  tag: "kong"
+  tag: "latest"
 
 imagePullSecrets: []
 nameOverride: ""
@@ -49,9 +49,9 @@ kong:
 ingress:
   enabled: true
   annotations:
-    kubernetes.io/ingress.class: "kong"
-    konghq.com/override: players-do-not-preserve-host
-    konghq.com/plugins: prometheus-players
+    konghq.com/preserve-host: "false"
+    konghq.com/strip-path: "true"
+    konghq.com/plugins: prometheus-matches,matches-otel
 
   hosts:
     - paths:
