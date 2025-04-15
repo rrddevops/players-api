@@ -1,40 +1,24 @@
-# Default values for players.
-# This is a YAML-formatted file.
-# Declare variables to be passed into your templates.
-
 replicaCount: 1
 
 image:
   repository: rodrigordavila/players
   pullPolicy: Always
-  # Overrides the image tag whose default is the chart appVersion.
-  tag: "kong"
+  tag: "latest"
 
 imagePullSecrets: []
 nameOverride: ""
 fullnameOverride: ""
 
 serviceAccount:
-  # Specifies whether a service account should be created
   create: true
-  # Annotations to add to the service account
   annotations: {}
-  # The name of the service account to use.
-  # If not set and create is true, a name is generated using the fullname template
   name: ""
 
 podAnnotations: {}
 
 podSecurityContext: {}
-  # fsGroup: 2000
 
 securityContext: {}
-  # capabilities:
-  #   drop:
-  #   - ALL
-  # readOnlyRootFilesystem: true
-  # runAsNonRoot: true
-  # runAsUser: 1000
 
 service:
   type: ClusterIP
@@ -46,24 +30,13 @@ kong:
 ingress:
   enabled: false
 
-#  hosts:
-#    - paths:
-#      - path: /api/players
-#        backend:
-#          serviceName: players
-#          servicePort: 9999
-#  tls: []
-  #  - secretName: chart-example-tls
-  #    hosts:
-  #      - chart-example.local
-
 resources:
-   limits:
-     cpu: 20m
-     memory: 10Mi
-   requests:
-     cpu: 10m
-     memory: 5Mi
+  limits:
+    cpu: 20m
+    memory: 10Mi
+  requests:
+    cpu: 10m
+    memory: 5Mi
 
 autoscaling:
   enabled: false
@@ -72,9 +45,7 @@ autoscaling:
   targetCPUUtilizationPercentage: 80
 
 nodeSelector: {}
-
 tolerations: []
-
 affinity: {}
 
 podLabels:
