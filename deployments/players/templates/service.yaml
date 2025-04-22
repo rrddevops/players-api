@@ -5,6 +5,10 @@ metadata:
   annotations:
     konghq.com/plugins: prometheus-players,players-logs
     ingress.kubernetes.io/service-upstream: "true"
+    konghq.com/override: players-do-not-preserve-host
+    konghq.com/connect-timeout: "2000"
+    konghq.com/read-timeout: "2000"
+    konghq.com/write-timeout: "2000"
   labels:
     {{- include "players.labels" . | nindent 4 }}
 spec:

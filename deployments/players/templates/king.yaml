@@ -5,8 +5,4 @@ metadata:
   name: players-do-not-preserve-host
 upstream:
   host_header: {{ include "players.fullname" . }}.bets.svc
-proxy:
-  connect_timeout: 2000
-  read_timeout: 2000
-  write_timeout: 2000
-{{end}}
+{{- end }}
